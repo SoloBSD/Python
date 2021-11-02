@@ -3,7 +3,7 @@
 #
 #  gopher2pdf.py
 #  
-#  Copyright 2021 Guillermo García Rojas C. <memo@hawking>
+#  Copyright 2021 Guillermo García Rojas C. <garciarojas@solobsd.org>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -21,17 +21,24 @@
 #  MA 02110-1301, USA.
 #  
 #  
+#
+# Program that takes an argument - A gopher url - and produces a
+# PDF document from the gopher page.
+# This is intended to produce a PDF from a text document, not from a 
+# gopher menu page.
+#
 
-from txt2pdf.core import txt2pdf
 import pituophis
 import sys
+from txt2pdf.core import txt2pdf
 
-
-pdf_file_path = "/home/memo/Python/test.pdf"
+pdf_file_path = "/home/memo/Python/Document.pdf"
 
 req = pituophis.parse_url(str(sys.argv[1]))
-print('Getting', req.url())
+print('Getting: ', req.url())
 rsp = req.get()
+
+# Creating the text file.
 
 f = open("gopher_text.md", "w")
         
@@ -40,6 +47,6 @@ f.write(md_content)
 
 f.close()
 
-
+# Creating the PDF.
 
 txt2pdf(pdf_file_path,md_content)
