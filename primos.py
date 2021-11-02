@@ -5,10 +5,14 @@ try:
 except ValueError:
     print("That's not an int!")
 
-primo = val%2
-if val == 2:
-    print("El 2 es un numero primo")
-elif primo == 0:
-   print("El numero no es primo")
+if val > 1:
+    for i in range(2,val):
+        if (val % i) == 0:
+            print("El número no es primo")
+            break
+    else:
+        print("El número es primo!")
+
 else:
- print("El numero es primo!")
+    print("El número no es primo")
+
