@@ -32,7 +32,7 @@ import pituophis
 import sys
 from txt2pdf.core import txt2pdf
 
-pdf_file_path = "/home/memo/Python/Document.pdf"
+pdf_file_path = "/home/memo/Python/Document.pdf" # Point to your preferred directory
 
 req = pituophis.parse_url(str(sys.argv[1]))
 print('Getting: ', req.url())
